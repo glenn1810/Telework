@@ -1,0 +1,19 @@
+<section class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      Employee List
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let employee of employeeList$ | async">
+          <p>Employee ID: {{employee.id}}</p>
+          <p>{{employee.firstName}} {{employee.lastName}}</p>
+          <p>{{employee.email}}</p>
+          <p><button class="btn btn-danger" (click)="removeEmployee(employee)" hidden>Delete</button></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+

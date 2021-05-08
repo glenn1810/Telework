@@ -1,0 +1,44 @@
+
+<section class="container mt-5 col-sm-4 card pt-4">
+  <Form class="mb-3">
+    <label for="id" class="form-label">Employee ID</label>
+    <input [(ngModel)]="employeeForm.id" id="id" name="id" type="number" class="form-control" required #id="ngModel">
+
+    <div *ngIf="id.invalid && (id.dirty || id.touched)">
+      <div *ngIf="id.errors?.required" class="alert alert-danger mt-2 mb-2 col-sm-6" role="alert">
+        Employee Id is required!
+      </div>
+    </div>
+
+
+    <label for="firstName" class="form-label">First Name</label>
+    <input [(ngModel)]="employeeForm.firstName" id="firstName" name="firstName" type="text" class="form-control" required #firstName="ngModel">
+
+    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+      <div *ngIf="firstName.errors?.required" class="alert alert-danger mt-2 mb-2 col-sm-6" role="alert">
+        FirstName is required!
+      </div>
+    </div>
+
+    <label for="lastName" class="form-label">Last Name</label>
+    <input [(ngModel)]="employeeForm.lastName" id="lastName" name="lastName" type="text" class="form-control" required #lastName="ngModel">
+
+    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+      <div *ngIf="lastName.errors?.required" class="alert alert-danger mt-2 mb-2 col-sm-6" role="alert">
+        LastName is required!
+      </div>
+    </div>
+
+    <label for="email" class="form-label">E-mail</label>
+    <input [(ngModel)]="employeeForm.email" id="email" name="email" type="email" class="form-control" required #email="ngModel">
+
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors?.required" class="alert alert-danger mt-2 mb-2 col-sm-6" role="alert">
+        E-mail is required!
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-success mt-2" (click)="onSubmitNewEmployee();"
+            [disabled]="id.errors?.required || firstName.errors?.required || lastName.errors?.required || email.errors?.required">Submit</button>
+  </Form>
+</section>
